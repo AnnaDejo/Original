@@ -1,0 +1,46 @@
+nav {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+nav a {
+    color: black; /* Initially black text */
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+    padding: 0.5rem 1rem;
+    border-radius: 50px; /* Oval-shaped background on hover */
+}
+
+nav a:hover {
+    color: #FF8C00; /* Change text color to orange on hover */
+    transform: scale(1.1); /* Enlarge the text slightly on hover */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black; /* Initially black text for navbar links */
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #FF8C00; /* Orange text color on hover */
+    transform: scale(1.3); /* Enlarge on hover */
+}

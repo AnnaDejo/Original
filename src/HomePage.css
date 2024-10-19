@@ -1,0 +1,219 @@
+/* Overall Enhancements */
+body {
+  font-family: 'Arial', sans-serif; /* Change font family */
+  margin: 0;
+  padding: 0;
+}
+/* Change button color */
+.btn-primary{
+  background-color: #e98a53; /* New background color */
+  color: white; /* Text color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e99f4b; /* Change color on hover */
+}
+
+/* Hero section styling */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  background: url('1.jpeg') no-repeat center center/cover; /* Add a background image if needed */
+  opacity: 95%;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: Darken background with an overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  color: white;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+}
+
+
+.footer {
+  background-color: #222; /* Dark footer background */
+  color: #ffffff; /* White text in footer */
+  padding: 30px; /* Increased padding for footer */
+  text-align: center; /* Centered text */
+  position: relative; /* Positioning */
+  bottom: 0; /* Stick to bottom */
+  width: 100%; /* Full width */
+  margin-top: 40px; /* Space above footer */
+}
+
+.footer p {
+  margin: 10px 0; /* Space between footer paragraphs */
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 20px;
+  gap: 20px; /* Added gap between sections */
+}
+
+.info-left, .info-right {
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border: 1px solid #ddd; /* Added border for both sections */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures content is evenly spaced */
+  min-height: 450px; /* Ensures both sections have equal height */
+  text-align: left;
+}
+
+.info-left {
+  width: 60%; /* Larger width */
+  background-color: #f8f9fa; 
+}
+
+.info-right {
+  width: 35%; /* Smaller width */
+  background-color: #f8f9fa; 
+}
+
+.info-left h2, .info-right h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #e76e1d;
+  border-bottom: 2px solid #e76e1d; 
+  padding-bottom: 2px; /* Adds space between text and underline */
+}
+
+.info-left h2::after, .info-right h2::after {
+  content: '';
+  display: block;
+  width: 50px; /* Width of the line */
+  height: 3px; /* Height of the line */
+  margin-top: 10px; /* Space between the text and line */
+}
+
+.info-right ul, .info-left p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.info-right ul li, .info-left p {
+  padding: 10px 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.info-right ul li:last-child, .info-left p:last-child {
+  border-bottom: none;
+}
+
+.image-section {
+  padding: 20px;
+  text-align: center; /* Center the images and heading */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 200px; /* Ensures consistent row height */
+  gap: 5px; /* Spacing between images */
+  padding: 20px;
+  justify-items: center;
+}
+
+.fade-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in, transform 0.75s ease-in;
+  transform: translateY(100px);
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.image-container img {
+  grid-row-end: span 1; /* All images span one row for consistency */
+}
+
+/* Specific images that need to span more columns or rows */
+.image-container img:nth-child(1),
+.image-container img:nth-child(2),
+.image-container img:nth-child(3) {
+  grid-column: span 2; /* Span 2 columns */
+  grid-row-end: span 2; /* Span 2 rows for larger images */
+}
+
+.image-container img:nth-child(4),
+.image-container img:nth-child(5) {
+  grid-column: span 2;
+  grid-row-end: span 2; /* Regular height */
+}
+
+.image-container img:nth-child(6),
+.image-container img:nth-child(7) {
+  grid-column: span 2;
+  grid-row-end: span 1; /* Regular height */
+}
+
+.image-container img:nth-child(8),
+.image-container img:nth-child(9) {
+  grid-column: span 3;
+  grid-row-end: span 2; /* Larger image with 3 columns */
+}
