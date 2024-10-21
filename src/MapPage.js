@@ -3,11 +3,11 @@ import 'leaflet/dist/leaflet.css';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import districtData from './geojson/district.json';
-import L from 'leaflet'; // Import leaflet for layer manipulation
 import './MapPage.css'; // Import CSS file for styles
 
 const MapPage = () => {
   const [hoveredDistrict, setHoveredDistrict] = useState(null);
+  const [clickedDistrict, setClickedDistrict] = useState(null); // State to track clicked district
   const navigate = useNavigate();  
 
   // Set bounds for Kerala based on your GeoJSON data
@@ -23,83 +23,79 @@ const MapPage = () => {
     opacity: 1,
     color: '#333',
     fillOpacity: 0.7,
-    dashArray: hoveredDistrict === feature.properties.DISTRICT ? '5' : '0', // Dashed border on hover
-});
+    outline: 'none' // Remove the rectangle on click
+  });
 
   // Handle mouseover for district hover
   const handleMouseOver = (e, feature) => {
     setHoveredDistrict(feature.properties.DISTRICT);
-    e.target.setStyle(getStyle(feature));
-    e.target.bindTooltip(`<strong>${feature.properties.DISTRICT}</strong><br>Popular attractions...`, {
-        className: 'district-tooltip enlarged-tooltip',
-        permanent: true,
+    e.target.bindTooltip(`<strong>${feature.properties.DISTRICT}</strong>`, {
+        className: 'district-tooltip',
         opacity: 1,
     }).openTooltip();
-};;
+  };
 
   // Handle mouseout to reset the district style
-  const handleMouseOut = (e, feature) => {
+  const handleMouseOut = (e) => {
     setHoveredDistrict(null);
-    e.target.setStyle(getStyle(feature)); // Reset style
+    e.target.closeTooltip();
   };
 
-  // Handle district click to navigate to another page
+  // Handle district click to show info panel and set clicked district
   const handleOnClick = (districtName) => {
-    navigate(`/district/${districtName}`);
+    setClickedDistrict(districtName); // Set the clicked district
   };
 
-  // Add district name labels
-  const addDistrictLabels = (map) => {
-    districtData.features.forEach((feature) => {
-      const districtName = feature.properties.DISTRICT;
-      const centroid = L.geoJson(feature).getBounds().getCenter(); // Get the centroid of the district
-
-      // Create a marker for the district name
-      const label = L.divIcon({
-        className: 'district-label',
-        html: `<span class="district-name">${districtName}</span>`,
-        iconSize: [100, 20], // Set size for the label
-      });
-
-      // Add the label to the map
-      L.marker(centroid, { icon: label }).addTo(map);
-    });
-  };
-
-  return (
-    <MapContainer 
-      bounds={keralaBounds} 
-      style={{ height: '150vh', width: '100%', position: 'absolute', left: 0 }} 
-      zoom={1}
-      zoomControl={true}
-      dragging={true}
-      scrollWheelZoom={false}
-    >
-      {/* Use the map instance from useMap hook */}
-      <AddDistrictLabels />
-
-      {/* Display the districts with interactivity */}
-      <GeoJSON 
-        data={districtData} 
-        style={getStyle}
-        onEachFeature={(feature, layer) => {
-          layer.on({
-            mouseover: (e) => handleMouseOver(e, feature),
-            mouseout: (e) => handleMouseOut(e, feature),
-            click: () => handleOnClick(feature.properties.DISTRICT)
-          });
-        }}
-      />
-    </MapContainer>
+  // Initial content for the panel
+  const initialPanelContent = (
+    <div className="panel-content">
+      <h2>Welcome to Kerala</h2>
+      <p>Explore the beauty of Kerala, known for its lush landscapes, backwaters, and diverse culture.</p>
+      <h3>Districts of Kerala</h3>
+      <ul className="district-list">
+        {districtData.features.map((feature) => (
+          <li key={feature.properties.DISTRICT}>{feature.properties.DISTRICT}</li>
+        ))}
+      </ul>
+    </div>
   );
 
-  function AddDistrictLabels() {
-    const map = useMap(); // Get the map instance
+  return (
+    <div className="map-container">
+      <MapContainer 
+        bounds={keralaBounds} 
+        style={{ height: '100vh', width: '75vw', position: 'relative', float: 'left' }} // Adjust to fit the viewport and leave space for the panel
+        zoom={1}
+        zoomControl={true}
+        dragging={true}
+        scrollWheelZoom={false}
+      >
+        <GeoJSON 
+          data={districtData} 
+          style={getStyle}
+          onEachFeature={(feature, layer) => {
+            layer.on({
+              mouseover: (e) => handleMouseOver(e, feature),
+              mouseout: (e) => handleMouseOut(e, feature),
+              click: () => handleOnClick(feature.properties.DISTRICT)
+            });
+          }}
+        />
+      </MapContainer>
 
-    useEffect(() => {
-      addDistrictLabels(map); // Add labels to the map
-    }, [map]); // Run only once when map instance is available
-  }
+      <div className="district-info-panel">
+        {clickedDistrict ? (
+          <div className="district-info">
+            <h2>{clickedDistrict}</h2>
+            <p>Explore popular attractions and more about {clickedDistrict}...</p>
+            <button className="explore-button" onClick={() => navigate(`/district/${clickedDistrict}`)}>Explore More</button>
+          </div>
+        ) : (
+          initialPanelContent
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default MapPage;
