@@ -2,15 +2,15 @@ import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
 import NavigationBar from './NavBar'; // Import your Navbar component
-import image1 from './image1.jpg';
-import image2 from './image2.jpg';
-import image3 from './image3.jpg';
-import image4 from './image4.jpg';
-import image5 from './image5.jpg';
-import image6 from './image6.jpg';
-import image7 from './image7.jpg';
-import image8 from './image8.jpg';
-import image9 from './image9.jpg';
+import image1 from './homeimages/image1.jpg';
+import image2 from './homeimages/image2.jpg';
+import image3 from './homeimages/image3.jpg';
+import image4 from './homeimages/image4.jpg';
+import image5 from './homeimages/image5.jpg';
+import image6 from './homeimages/image6.jpg';
+import image7 from './homeimages/image7.jpg';
+import image8 from './homeimages/image8.jpg';
+import image9 from './homeimages/image9.jpg';
 
 function HomePage() {
   const navigate = useNavigate();

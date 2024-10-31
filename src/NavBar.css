@@ -1,46 +1,62 @@
-nav {
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: black;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-
-nav a {
-    color: black; /* Initially black text */
-    text-decoration: none;
-    margin-right: 1rem;
-    font-weight: bold;
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; 
-    padding: 0.5rem 1rem;
-    border-radius: 50px; /* Oval-shaped background on hover */
-}
-
-nav a:hover {
-    color: #FF8C00; /* Change text color to orange on hover */
-    transform: scale(1.1); /* Enlarge the text slightly on hover */
-}
-
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-}
-
-.navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.5);
-}
-
-.navbar-toggler:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: black; /* Initially black text for navbar links */
-}
-
-.navbar-light .navbar-nav .nav-link:hover {
-    color: #FF8C00; /* Orange text color on hover */
-    transform: scale(1.3); /* Enlarge on hover */
-}
+/* Navbar styles */
+.navbar {
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+  
+  /* Navbar hover effect */
+  .navbar:hover {
+    background-color: #f8f9fa; /* Change to a slightly darker color on hover */
+  }
+  
+  /* Navbar brand */
+  .navbar-brand {
+    font-size: 1.5rem; /* Increase font size for brand name */
+    font-weight: bold; /* Make the brand name bold */
+    color: #080808; /* Custom color for the brand */
+  }
+  
+  /* Navbar links */
+  .nav-link {
+    margin: 0 15px; /* Add margin for spacing */
+    font-size: 1.1rem; /* Increase font size for links */
+    color: #333; /* Default color for links */
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  
+  /* Navbar link hover effect */
+  .nav-link:hover {
+    color: #ff7800; /* Change link color on hover */
+  }
+  
+  /* Button styles for Sign In/Sign Up */
+  .btn-outline-warning {
+    border: 2px solid #ff7800; /* Set border color */
+    color: #ff7800; /* Text color */
+    padding: 8px 16px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size for button text */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+  }
+  
+  /* Button hover effect */
+  .btn-outline-warning:hover {
+    background-color: #ff7800; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .navbar-brand {
+      font-size: 1.3rem; /* Adjust brand size for smaller screens */
+    }
+  
+    .nav-link {
+      margin: 0 10px; /* Adjust margin for smaller screens */
+      font-size: 1rem; /* Adjust font size for links */
+    }
+  
+    .btn-outline-warning {
+      font-size: 0.9rem; /* Adjust font size for button */
+    }
+  }
+  

@@ -1,0 +1,71 @@
+.signin-container {
+    display: flex; /* Use Flexbox for layout */
+    height: 100vh; /* Full height of the viewport */
+  }
+  
+  .image-section {
+    flex: 8; /* Take up half of the width */
+    display: flex; /* Center image vertically and horizontally */
+    justify-content: center;
+    align-items: center; /* Optional background color */
+    background-image:url("simage.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%; /* Full width */
+    height: 100%;
+  }
+  
+  .image-section img {
+    width: 100%; /* Full width */
+    height: 100%; /* Keep height auto */
+    object-fit: cover;
+  }
+  
+  .form-section {
+    flex: 4; /* Take up half of the width */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    padding: 20px; /* Add some padding */
+    background-color: #f1fdf7; /* Background color for form section */
+  }
+  
+  .form-section h2 {
+    margin-bottom: 20px; /* Space between title and form */
+    color: rgb(107, 96, 96);
+  }
+  
+  .form-section form {
+    width: 100%; /* Full width of the form section */
+    max-width: 450px; /* Limit max width */
+    border: 2px solid #e99f4b; /* Blue border */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px; /* Inner padding */
+    box-shadow: 0 4px 8px #e99f4b; /* Optional shadow */
+    background-color: white; /* Background color */
+  }
+  
+  .form-section input {
+    width: 100%; /* Full width */
+    height: 60px;
+    padding: 10px; /* Padding for input */
+    margin-bottom: 10px; /* Space between inputs */
+    border: 1px solid #e99f4b; /* Border for input */
+    border-radius: 5px ; /* Rounded corners */
+  }
+  
+  .form-section button {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #e99f4b; /* Button color */
+    color: white; /* Text color */
+    cursor: pointer; /* Pointer on hover */
+  }
+  
+  .form-section button:hover {
+    background-color: #d0760f; /* Darker button color on hover */
+  }
+  

@@ -3,12 +3,12 @@ import 'leaflet/dist/leaflet.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import districtData from './geojson/district.json';
-import tourismData from './tourismData'; // Import your tourism data
-import './MapPage.css'; // Import CSS file for styles
+import tourismData from './tourismData';
+import './MapPage.css';
 
 const MapPage = () => {
   const [hoveredDistrict, setHoveredDistrict] = useState(null);
-  const [clickedDistrict, setClickedDistrict] = useState("Kasaragod"); // Set initial clicked district to Kasargod
+  const [clickedDistrict, setClickedDistrict] = useState("Kasaragod");
   const navigate = useNavigate();  
 
   const keralaBounds = [
@@ -48,13 +48,13 @@ const MapPage = () => {
       <div className="flex-container">
         <MapContainer 
           bounds={keralaBounds} 
-          style={{ height: '100vh', width: '85vw' }} // Increased width to 85% of the viewport
+          style={{ height: '100vh', width: '85vw' }} 
           zoom={1}  
-          dragging={false}  // Disable dragging
-          scrollWheelZoom={false}  // Disable scroll zoom
-          doubleClickZoom={false}  // Disable double-click zoom
-          boxZoom={false}  // Disable box zoom
-          keyboard={false}  // Disable keyboard controls
+          dragging={false}  
+          scrollWheelZoom={false}  
+          doubleClickZoom={false}  
+          boxZoom={false}  
+          keyboard={false}  
           attributionControl={false}
         >
           <GeoJSON 
@@ -76,13 +76,13 @@ const MapPage = () => {
               <img src={tourismData[clickedDistrict].image} className="card-img-top" alt={clickedDistrict} />
               <h5 className="card-title">{clickedDistrict}</h5>
               <p className="card-text">{tourismData[clickedDistrict].description}</p>
-              <button className="btn btn-primary" onClick={() => navigate(`/district/${clickedDistrict}`)}>
-                Explore More
+              <button type="button" class="btn btn-outline-warning" onClick={() => navigate(`/district/${clickedDistrict}`)} >
+                  Explore More
               </button>
+
             </div>
           )}
         </div>
-
       </div>
     </div>
   );
