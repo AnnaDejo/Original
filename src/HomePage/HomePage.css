@@ -30,7 +30,7 @@ body {
   display: flex;
   justify-content: center; /* Horizontally center the content */
   align-items: center; /* Vertically center the content */
-  background: url('1.jpeg') no-repeat center center/cover; /* Background image */
+  background: url('../1.jpeg') no-repeat center center/cover; /* Background image */
   opacity: 95%;
   background-color: white; /* Add white background as fallback */
 }

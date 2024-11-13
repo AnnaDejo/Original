@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SignIn.css';
-import simage from './simage.jpg'; 
+import simage from '../simage.jpg'; 
 
 const SignIn = () => {
   const [username, setUsername] = useState('');

@@ -2,8 +2,8 @@ import { MapContainer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'; 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import districtData from './geojson/district.json';
-import tourismData from './tourismData';
+import districtData from '../geojson/district.json';
+import tourismData from '../tourismData';
 import './MapPage.css';
 
 const MapPage = () => {

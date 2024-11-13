@@ -8,7 +8,7 @@
     display: flex; /* Center image vertically and horizontally */
     justify-content: center;
     align-items: center; /* Optional background color */
-    background-image:url("simage.jpg");
+    background-image:url("../simage.jpg");
     background-size: cover;
     background-position: center;
     width: 100%; /* Full width */

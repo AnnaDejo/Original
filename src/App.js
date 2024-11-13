@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import HomePage from './HomePage'; 
-import MapPage from './MapPage';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
+import HomePage from './HomePage/HomePage'; 
+import MapPage from './MapPage/MapPage';
+import SignIn from './SignIn/SignIn';
+import SignUp from './SignUp/SignUp';
 import keralaGeoJson from './geojson/district.json'; // Adjust the path accordingly
 
 
