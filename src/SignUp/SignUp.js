@@ -1,94 +1,232 @@
-import React from 'react';
-import '../App.css'; // Ensure you have your custom CSS here
+import React, { useState } from 'react';
+import '../App.css';
+import './SignUp.css';
+import { useNavigate } from 'react-router-dom';  // for redirection
 
-const LoginPage = () => {
+const SignUpPage = () => {
+  const [contactMethod, setContactMethod] = useState('email');
+  const [step, setStep] = useState(1);  // to track the current step (1 = first, 2 = second)
+  const [userData, setUserData] = useState({
+    firstName: '',
+    middleName: '',
+    lastName: '',
+    password: '',
+    confirmPassword: '',
+    country: '',
+    state: '',
+    pincode: '',
+    contactInfo: ''
+  });
+
+  const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
+  };
+
+  const handleNext = () => {
+    if (step === 1) {
+      // Validate password confirmation before proceeding to step 2
+      if (userData.password !== userData.confirmPassword) {
+        alert('Passwords do not match!');
+      } else {
+        setStep(2);
+      }
+    } else {
+      // At this point, the form is complete, handle the final submission
+      alert('Sign Up Complete!');
+    }
+  };
+
+  const handleSignInRedirect = () => {
+    navigate('/signin');  // Redirect to Sign In page
+  };
+
   return (
-    <section className="h-100 gradient-form" style={{ backgroundColor: '#eee' }}>
-      <div className="container py-5 h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-xl-10">
-            <div className="card rounded-3 text-black">
-              <div className="row g-0">
-                {/* Left side image and logo */}
-                <div
-                  className="col-lg-6"
-                  style={{
-                    backgroundImage: 'url(../simage.jpg)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                >
-                  <div className="card-body p-md-5 mx-md-4 d-flex justify-content-center align-items-center h-100">
-                    <div className="text-center text-white">
-                      <img src="simage.jpg" style={{ width: '185px' }} alt="logo" />
-                      <h4 className="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
+    <section className="signup-container">
+      <div className="header">
+        <button className="signin-link" onClick={handleSignInRedirect}>Sign In</button>
+      </div>
+      <div className="left-side">
+        <h2>Welcome to Our Tourism Platform!</h2>
+        <p>Discover exciting tourism experiences and create an account to get started.</p>
+      </div>
+      <div className="right-side">
+        <div className="form-wrapper">
+          <div className="form-card">
+            <h2 className="text-center mb-4">
+              {step === 1 ? 'Create Your Account' : 'Enter Contact Details'}
+            </h2>
+            <p className="text-center mb-5">
+              {step === 1 ? 'Join us and explore the best tourism experiences!' : 'Please provide your contact details.'}
+            </p>
+            <form>
+              {step === 1 ? (
+                <>
+                  {/* First Name, Middle Name, Last Name */}
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="firstName">First Name</label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      className="form-control"
+                      placeholder="Enter your first name"
+                      value={userData.firstName}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="middleName">Middle Name (Optional)</label>
+                    <input
+                      type="text"
+                      id="middleName"
+                      name="middleName"
+                      className="form-control"
+                      placeholder="Enter your middle name"
+                      value={userData.middleName}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="lastName">Last Name</label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      className="form-control"
+                      placeholder="Enter your last name"
+                      value={userData.lastName}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+
+                  {/* Password and Confirm Password */}
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="password">Password</label>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      className="form-control"
+                      placeholder="Create a password"
+                      value={userData.password}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="confirmPassword">Confirm Password</label>
+                    <input
+                      type="password"
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      className="form-control"
+                      placeholder="Confirm your password"
+                      value={userData.confirmPassword}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Contact Details */}
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="country">Country</label>
+                    <input
+                      type="text"
+                      id="country"
+                      name="country"
+                      className="form-control"
+                      placeholder="Enter your country"
+                      value={userData.country}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="state">State</label>
+                    <input
+                      type="text"
+                      id="state"
+                      name="state"
+                      className="form-control"
+                      placeholder="Enter your state"
+                      value={userData.state}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="pincode">Pincode</label>
+                    <input
+                      type="text"
+                      id="pincode"
+                      name="pincode"
+                      className="form-control"
+                      placeholder="Enter your pincode"
+                      value={userData.pincode}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+
+                  {/* Choose Contact Method */}
+                  <div className="form-group contact-method-container">
+                    <div className="contact-method-toggle">
+                      <div
+                        className={`contact-method ${contactMethod === 'email' ? 'active' : ''}`}
+                        onClick={() => setContactMethod('email')}
+                      >
+                        <i className="fas fa-envelope"></i> Email
+                      </div>
+                      <div
+                        className={`contact-method ${contactMethod === 'phone' ? 'active' : ''}`}
+                        onClick={() => setContactMethod('phone')}
+                      >
+                        <i className="fas fa-phone-alt"></i> Phone
+                      </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* Right side content */}
-                <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
-                  <div className="text-black px-3 py-4 p-md-5 mx-md-4">
-                    <h4 className="mb-4">We are more than just a company</h4>
-                    <p className="small mb-0">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Login form */}
-              <div className="row g-0">
-                <div className="col-lg-6 offset-lg-3">
-                  <div className="card-body p-md-5 mx-md-4">
-                    <form>
-                      <p>Please login to your account</p>
-
-                      {/* Username input */}
-                      <div className="form-outline mb-4">
+                    {/* Conditional Input for Email or Phone */}
+                    {contactMethod === 'email' ? (
+                      <div className="form-group">
                         <input
                           type="email"
-                          id="form2Example11"
+                          id="contactInfo"
+                          name="contactInfo"
                           className="form-control"
-                          placeholder="Phone number or email address"
+                          placeholder="Enter your email"
+                          value={userData.contactInfo}
+                          onChange={handleInputChange}
                         />
-                        <label className="form-label" htmlFor="form2Example11">Username</label>
                       </div>
-
-                      {/* Password input */}
-                      <div className="form-outline mb-4">
+                    ) : (
+                      <div className="form-group">
                         <input
-                          type="password"
-                          id="form2Example22"
+                          type="tel"
+                          id="contactInfo"
+                          name="contactInfo"
                           className="form-control"
+                          placeholder="Enter your phone number"
+                          value={userData.contactInfo}
+                          onChange={handleInputChange}
                         />
-                        <label className="form-label" htmlFor="form2Example22">Password</label>
                       </div>
-
-                      {/* Login button and forgot password */}
-                      <div className="text-center pt-1 mb-5 pb-1">
-                        <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">
-                          Log in
-                        </button>
-                        <a className="text-muted" href="#!">Forgot password?</a>
-                      </div>
-
-                      {/* Sign up section */}
-                      <div className="d-flex align-items-center justify-content-center pb-4">
-                        <p className="mb-0 me-2">Don't have an account?</p>
-                        <button type="button" className="btn btn-outline-danger">Create new</button>
-                      </div>
-                    </form>
+                    )}
                   </div>
-                </div>
+                </>
+              )}
+
+              {/* Next Button */}
+              <div className="text-center mt-4">
+                <button type="button" className="btn btn-primary btn-block" onClick={handleNext}>
+                  {step === 1 ? 'Next' : 'Sign Up'}
+                </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
-export default LoginPage;
+export default SignUpPage;
