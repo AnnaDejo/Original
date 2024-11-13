@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/RootsGuide/static/css/main.d95cac4b.css",
+    "main.js": "/RootsGuide/static/js/main.3b708f8b.js",
+    "static/js/453.2f0131f6.chunk.js": "/RootsGuide/static/js/453.2f0131f6.chunk.js",
+    "static/media/image9.jpg": "/RootsGuide/static/media/image9.bc6f84cbce40d406c618.jpg",
+    "static/media/image2.jpg": "/RootsGuide/static/media/image2.9e9a52496b94be8070ca.jpg",
+    "static/media/image7.jpg": "/RootsGuide/static/media/image7.d7674648e5adeddfa8e4.jpg",
+    "static/media/1.jpeg": "/RootsGuide/static/media/1.e834b675350fcb125c0a.jpeg",
+    "static/media/image3.jpg": "/RootsGuide/static/media/image3.fe313d6d15f03674dede.jpg",
+    "static/media/image1.jpg": "/RootsGuide/static/media/image1.e62394b4483d655bf1d5.jpg",
+    "static/media/image5.jpg": "/RootsGuide/static/media/image5.29a4a13b2b0f95322b62.jpg",
+    "static/media/image4.jpg": "/RootsGuide/static/media/image4.37d263880c9620dd7951.jpg",
+    "static/media/image8.jpg": "/RootsGuide/static/media/image8.f06a2097933742b76419.jpg",
+    "static/media/image6.jpg": "/RootsGuide/static/media/image6.b16ca1428190cde15680.jpg",
+    "static/media/Kannur.jpg": "/RootsGuide/static/media/Kannur.882a0689e899edb39e6b.jpg",
+    "static/media/Kasaragod.jpg": "/RootsGuide/static/media/Kasaragod.a74ad177a9d069d2aa0e.jpg",
+    "static/media/simage.jpg": "/RootsGuide/static/media/simage.6024ee0a195268149d7f.jpg",
+    "static/media/Malappuram.jpg": "/RootsGuide/static/media/Malappuram.b574d478777b5c4f7c0c.jpg",
+    "static/media/Pathanamthitta.jpg": "/RootsGuide/static/media/Pathanamthitta.b2f1a8ffec8a5dc43c8e.jpg",
+    "static/media/Kottayam.jpg": "/RootsGuide/static/media/Kottayam.fdc494479d44d32f1631.jpg",
+    "static/media/Ernakulam.jpg": "/RootsGuide/static/media/Ernakulam.183d196a7faeae7b1fa0.jpg",
+    "static/media/Palakkad.jpg": "/RootsGuide/static/media/Palakkad.b7791e1f58d7223883d7.jpg",
+    "static/media/Kollam.jpg": "/RootsGuide/static/media/Kollam.5f39f40eb8c73ffacbc6.jpg",
+    "static/media/Idukki.jpg": "/RootsGuide/static/media/Idukki.0bab189722fcde83a466.jpg",
+    "static/media/Alappuzha.jpg": "/RootsGuide/static/media/Alappuzha.1b5fc9184cf4a1e94802.jpg",
+    "static/media/Kozhikode.jpg": "/RootsGuide/static/media/Kozhikode.03761089a4b4c606c7b3.jpg",
+    "static/media/Wayanad.jpg": "/RootsGuide/static/media/Wayanad.d95c3e380590e02e1ba4.jpg",
+    "static/media/Thiruvananthapuram.jpg": "/RootsGuide/static/media/Thiruvananthapuram.0d720657284f3153cbff.jpg",
+    "index.html": "/RootsGuide/index.html",
+    "main.d95cac4b.css.map": "/RootsGuide/static/css/main.d95cac4b.css.map",
+    "main.3b708f8b.js.map": "/RootsGuide/static/js/main.3b708f8b.js.map",
+    "453.2f0131f6.chunk.js.map": "/RootsGuide/static/js/453.2f0131f6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d95cac4b.css",
+    "static/js/main.3b708f8b.js"
+  ]
+}
